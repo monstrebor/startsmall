@@ -9,7 +9,7 @@
             </button>
         </div>
 
-        <form method="POST" action="{{ route('customer-account-email.update') }}" class="space-y-4">
+        <form method="POST" action="{{ route('user-email.update') }}" class="space-y-4">
             @csrf
             <input type="hidden" name="id" value="{{ auth()->user()->id}}">
             <div>

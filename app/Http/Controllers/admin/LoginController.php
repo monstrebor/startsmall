@@ -27,12 +27,8 @@ class LoginController extends Controller
             $role = $user->getRoleNames()->first();
 
             switch ($role) {
-                case 'administrator':
+                case 'admin':
                     return redirect()->route('administrator.dashboard')->with('success', 'Welcome, Admin!');
-                case 'customer':
-                    return redirect()->route('customer.dashboard')->with('success', 'Welcome, Customer!');
-                case 'rider':
-                    return redirect()->route('rider.dashboard')->with('success', 'Welcome, Rider!');
                 case 'cashier':
                     return redirect()->route('cashier.dashboard')->with('success', 'Welcome, Cashier!');
                 default:

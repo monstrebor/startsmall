@@ -17,7 +17,7 @@
 
     function resetTimer() {
         clearTimeout(logoutTimer);
-        logoutTimer = setTimeout(autoLogout, 30 * 1000); // 30 seconds for testing
+        logoutTimer = setTimeout(autoLogout, 10 * 60 * 1000); // 10 minutes
     }
 
     ['click', 'mousemove', 'keydown', 'scroll', 'touchstart'].forEach(event => {

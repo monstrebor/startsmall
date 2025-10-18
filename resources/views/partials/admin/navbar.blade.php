@@ -3,7 +3,7 @@
         <a href="{{ route('administrator.dashboard') }}" class="ml-[65px] flex items-center space-x-2">
             <img src="" alt="business logo" class="ml-[4px] w-14 h-14 rounded-full">
             <span
-                class="text-gray-600 hover:text-blue-600 text-2xl font-medium px-4 py-2 rounded transition">MyApp</span>
+                class="text-gray-600 hover:text-blue-600 text-2xl font-medium px-4 py-2 rounded transition">Start Small</span>
         </a>
 
         <div class="flex items-center space-x-4">
@@ -33,7 +33,7 @@
                 <span class="absolute -top-1 -right-1 inline-block w-3 h-3 bg-red-500 rounded-full"></span>
             </button>
 
-            <div class="relative border border-gray-300 px-4 py-2 rounded transition hover:text-blue-600">
+            <a href="{{ route('user.dashboard') }}" class="relative border border-gray-300 px-4 py-2 rounded transition hover:text-blue-600">
                 <button class="flex items-center space-x-1 text-gray-600 hover:text-blue-600">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -44,7 +44,7 @@
                     </svg>
                     <span class="text-2xl font-medium">Account</span>
                 </button>
-            </div>
+            </a>
 
             <form action="{{ route('logout') }}" method="POST">
                 @csrf

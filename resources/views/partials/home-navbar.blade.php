@@ -1,30 +1,30 @@
 <nav class="bg-white border-b border-gray-200 px-4 py-3 shadow-sm">
     <div class="flex items-center justify-between">
-        <a href="{{ route('customer.dashboard') }}" class="ml-[65px] flex items-center space-x-2">
+        <a href="" class="ml-[65px] flex items-center space-x-2">
             <img src="{{ asset('image/sample.png') }}" alt="business logo" class="ml-[4px] w-14 h-14 rounded-full">
             <span
-                class="text-gray-600 hover:text-blue-600 text-2xl font-medium px-4 py-2 rounded transition">MyApp</span>
+                class="text-gray-600 hover:text-blue-600 text-2xl font-medium px-4 py-2 rounded transition">Start Small</span>
         </a>
 
         @auth
         <div class="flex items-center space-x-4">
-            <a href="{{ route('customer.dashboard') }}"
+            <a href=""
                 class="text-gray-600 hover:text-blue-600 text-2xl font-medium border border-gray-300 px-4 py-2 rounded transition">
                 <span class="text-2xl">🛍️</span> Products
             </a>
 
-            <a href="{{ route('orders.index') }}"
+            <a href=""
                 class="text-gray-600 hover:text-blue-600 text-2xl font-medium border border-gray-300 px-4 py-2 rounded transition">
                 <span class="text-2xl">📦</span> My Orders
             </a>
 
-            <a href="{{ route('cart.index') }}"
+            <a href=""
                 class="text-gray-600 hover:text-blue-600 text-2xl font-medium border border-gray-300 px-4 py-2 rounded transition">
                 <span class="text-2xl">🛒</span> My Cart
             </a>
 
             <div class="relative border border-gray-300 px-2 py-2 rounded transition hover:text-blue-600">
-                <a href="{{ route('customer-account.dashboard') }}" class="flex items-center space-x-1 text-gray-600 hover:text-blue-600">
+                <a href="{{ route('user.dashboard') }}" class="flex items-center space-x-1 text-gray-600 hover:text-blue-600">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-9 w-9" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 17.804A10.95 10.95 0 0112

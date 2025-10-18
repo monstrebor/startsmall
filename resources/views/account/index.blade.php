@@ -11,7 +11,7 @@
 
 
 <div class="w-full min-h-screen bg-gray-50">
-    @include('partials.customer.navbar')
+    @include('partials.users-navbar')
 
     <div class="max-w-6xl mx-auto px-4 py-8">
         @include('layout.all_notif')
@@ -22,7 +22,7 @@
                     <img src="https://as1.ftcdn.net/jpg/02/59/39/46/1000_F_259394679_GGA8JJAEkukYJL9XXFH2JoC3nMguBPNH.jpg"
                         alt="Logo" class="h-10 w-10 rounded-full border shadow-md">
                     <h1 class="text-3xl font-extrabold text-indigo-700 flex items-center gap-2">
-                        Customer Account
+                        User Account
                     </h1>
                 </div>
                 <div class="flex">
@@ -38,7 +38,7 @@
                 </div>
             </div>
 
-            <form method="POST" action="{{ route('customer-account.update') }}">
+            <form method="POST" action="{{ route('user.update') }}">
                 @csrf
                 <dl class="grid grid-cols-1 sm:grid-cols-2 gap-x-6 gap-y-4 text-sm text-gray-800">
                     <div class="w-[850px] bg-white shadow-xl rounded-2xl p-6 border border-gray-200">
@@ -47,35 +47,35 @@
                                 <i data-lucide="user" class="w-4 h-4 text-indigo-500"></i>
                                 <div>
                                     <dt class="text-xs text-gray-500">Full Name</dt>
-                                    <dd class="font-medium">{{ $user->customerInfo->full_name ?? 'N/A' }}</dd>
+                                    <dd class="font-medium">{{ $user->userInfo->full_name ?? 'N/A' }}</dd>
                                 </div>
                             </div>
                             <div class="flex items-center gap-2">
                                 <i data-lucide="phone" class="w-4 h-4 text-indigo-500"></i>
                                 <div>
                                     <dt class="text-xs text-gray-500">Phone Number</dt>
-                                    <dd class="font-medium">{{ $user->customerInfo->phone_number ?? 'N/A' }}</dd>
+                                    <dd class="font-medium">{{ $user->userInfo->phone_number ?? 'N/A' }}</dd>
                                 </div>
                             </div>
                             <div class="flex items-center gap-2">
                                 <i data-lucide="map-pin" class="w-4 h-4 text-indigo-500"></i>
                                 <div>
                                     <dt class="text-xs text-gray-500">Street</dt>
-                                    <dd class="font-medium">{{ $user->customerInfo->street ?? 'N/A' }}</dd>
+                                    <dd class="font-medium">{{ $user->userInfo->street ?? 'N/A' }}</dd>
                                 </div>
                             </div>
                             <div class="flex items-center gap-2">
                                 <i data-lucide="map" class="w-4 h-4 text-indigo-500"></i>
                                 <div>
                                     <dt class="text-xs text-gray-500">City</dt>
-                                    <dd class="font-medium">{{ $user->customerInfo->city ?? 'N/A' }}</dd>
+                                    <dd class="font-medium">{{ $user->userInfo->city ?? 'N/A' }}</dd>
                                 </div>
                             </div>
                             <div class="flex items-center gap-2">
                                 <i data-lucide="compass" class="w-4 h-4 text-indigo-500"></i>
                                 <div>
                                     <dt class="text-xs text-gray-500">Province</dt>
-                                    <dd class="font-medium">{{ $user->customerInfo->province ?? 'N/A' }}</dd>
+                                    <dd class="font-medium">{{ $user->userInfo->province ?? 'N/A' }}</dd>
                                 </div>
                             </div>
                             <div class="flex items-center gap-2 sm:col-span-2">
@@ -98,7 +98,7 @@
 
             </form>
         </div>
-        @include('users.customers.account.modal')
+        @include('account.modal')
     </div>
 </div>
 <script src="{{ asset('js/customerAccount.js') }}"></script>

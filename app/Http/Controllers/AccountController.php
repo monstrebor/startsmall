@@ -1,22 +1,22 @@
 <?php
 
-namespace App\Http\Controllers\users;
+namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CustomerInfoRequest;
-use Illuminate\Support\Facades\Mail;
-use App\Models\{User, CustomerInfo};
-use Illuminate\Support\Facades\{Auth, log};
 use Exception;
 use Illuminate\Http\Request;
+use App\Models\{User, UserInfo};
+use App\Http\Requests\UserInfoRequest;
+use Illuminate\Support\Facades\{Auth, log, Mail};
 
-class CustomerAccountController extends Controller
+
+class AccountController extends Controller
 {
     public function index()
     {
         $user_id = auth()->user()->id;
         $user = User::find($user_id);
-        return view("users.customers.account.index", compact('user'));
+        return view("account.index", compact('user'));
     }
 
     public function updateEmail(Request $request)
@@ -48,7 +48,7 @@ class CustomerAccountController extends Controller
         }
     }
 
-    public function update(CustomerInfoRequest $request)
+    public function update(UserInfoRequest $request)
     {
         $user_id = Auth::id();
 
@@ -59,9 +59,9 @@ class CustomerAccountController extends Controller
                 $data['full_name'] = strtoupper($data['full_name']);
             }
 
-            CustomerInfo::updateOrCreate(
+            UserInfo::updateOrCreate(
                 ['user_id' => $user_id],
-                $data 
+                $data
             );
 
             return redirect()->back()->with('success', 'Customer information updated successfully.');

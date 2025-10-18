@@ -11,8 +11,6 @@
     @include('partials.admin.navbar')
     @include('partials.admin.sidebar')
 
-    @include('admin.transaction-dashboard')
-
     @if (auth()->check() && auth()->user()->is_new)
     @include('settings.change-password')
     @endif

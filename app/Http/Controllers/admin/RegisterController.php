@@ -5,7 +5,7 @@ namespace App\Http\Controllers\admin;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\{Hash,Mail};
-use App\Models\{User,CustomerInfo};
+use App\Models\{User,UserInfo};
 use Illuminate\Support\Str;
 use Exception;
 
@@ -39,8 +39,8 @@ class RegisterController extends Controller
                 'is_new' => true,
                 'status' => 'active',
             ]);
-            $user->assignRole('customer');
-            CustomerInfo::create([
+            $user->assignRole('cashier');
+            UserInfo::create([
                 'user_id' => $user->id,
                 'full_name' => strtoupper($request->name),
             ]);

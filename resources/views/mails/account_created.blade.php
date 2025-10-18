@@ -19,7 +19,7 @@
                             <img src="https://cdn-icons-png.flaticon.com/512/2910/2910768.png"
                                 alt="Ordering and Billing System"
                                 style="width:80px;height:auto;border-radius:50%;box-shadow:0 2px 6px rgba(0,0,0,0.3);">
-                            <h1 style="color:#ffffff;font-size:24px;margin-top:10px;">Ordering & Billing System</h1>
+                            <h1 style="color:#ffffff;font-size:24px;margin-top:10px;">Start Small Sales and Inventory System</h1>
                         </td>
                     </tr>
 
