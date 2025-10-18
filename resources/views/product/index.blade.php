@@ -11,7 +11,7 @@
     @include('partials.admin.navbar')
     @include('partials.admin.sidebar')
 
-    <main class="m-[100px]">
+    <main class="ml-[100px] mt-[20px] mr-[20px]">
         @include('layout.all_notif')
 
         @include('product.product-table')

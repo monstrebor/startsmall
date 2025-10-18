@@ -1,7 +1,8 @@
 <?php
 
 use App\Http\Controllers\AccountController;
-use App\Http\Controllers\admin\{ManageUserController, AdministratorController, LoginController, RegisterController, SettingsController};
+use App\Http\Controllers\admin\{ManageUserController, AdminController, LoginController, RegisterController, SettingsController};
+use App\Http\Controllers\ProductController;
 use App\Http\Controllers\users\CashierController;
 use Illuminate\Support\Facades\Route;
 
@@ -45,7 +46,7 @@ Route::middleware('guest')->group(function () {
 |--------------------------------------------------------------------------
 */
 Route::middleware(['auth', 'role:admin'])->group(function () {
-    Route::get('/admin', [AdministratorController::class, 'index'])->name('administrator.dashboard');
+    Route::get('/admin', [AdminController::class, 'index'])->name('admin.dashboard');
 
     //Manage user
     Route::get('admin-create-user', [ManageUserController::class, 'index'])->name('admin-create-user.dashboard');
@@ -53,9 +54,15 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     Route::post('admin-create-user-update', [ManageUserController::class, 'update'])->name('admin-create-user.update');
     Route::patch('/admin/users/{user}/toggle-status', [ManageUserController::class, 'toggleStatus'])->name('admin.users.toggle-status');
 
+    //Product
+    Route::get('/product', [ProductController::class, 'index'])->name('product.dashboard');
+    Route::post('/product-store', [ProductController::class, 'store'])->name('product.store');
+    Route::post('/product-update', [ProductController::class, 'update'])->name('product.update');
+    Route::delete('/products/{id}', [ProductController::class, 'destroy'])->name('product.destroy');
+
     //Reports
-    Route::get('/reports/walkins', [AdministratorController::class, 'walkinReport'])->name('admin.reports.walkins');
-    Route::get('/reports/return-exchange', [AdministratorController::class, 'returnExchangeReport'])->name('admin.reports.return-exchange');
+    Route::get('/reports/walkins', [AdminController::class, 'walkinReport'])->name('admin.reports.walkins');
+    Route::get('/reports/return-exchange', [AdminController::class, 'returnExchangeReport'])->name('admin.reports.return-exchange');
 });
 
 /*

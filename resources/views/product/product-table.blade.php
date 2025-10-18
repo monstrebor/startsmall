@@ -15,10 +15,11 @@
         <thead class="bg-gray-100 text-gray-600 text-sm uppercase tracking-wider">
             <tr>
                 <th class="px-4 py-3 text-left">ID</th>
-                <th class="px-4 py-3 text-left">Name</th>
-                <th class="px-4 py-3 text-left">Description</th>
-                <th class="px-4 py-3 text-left">Quantity</th>
-                <th class="px-4 py-3 text-left">Price</th>
+                <th class="px-4 py-3 text-left">Category</th>
+                <th class="px-4 py-3 text-left">Cost Price</th>
+                <th class="px-4 py-3 text-left">Sell Price</th>
+                <th class="px-4 py-3 text-left">Stock</th>
+                <th class="px-4 py-3 text-left">Barcode</th>
                 <th class="px-4 py-3 text-left">Image</th>
                 <th class="px-4 py-3 text-left">Supplier</th>
                 <th class="px-4 py-3 text-left">Date Received</th>
@@ -26,51 +27,54 @@
             </tr>
         </thead>
         <tbody class="text-gray-700 divide-y divide-gray-200">
-            @foreach ( $products as $product)
-            <tr class="hover:bg-gray-50">
-                <td class="px-4 py-3">{{ $product->id }}</td>
-                <td class="px-4 py-3 font-medium">{{ $product->name ?? 'no data'}}</td>
-                <td class="px-4 py-3 text-sm">{{ $product->description ?? 'no data' }}</td>
-                <td class="px-4 py-3">{{ $product->qty ?? 'no data'}}</td>
-                <td class="px-4 py-3">${{ $product->price ?? 'no data'}}</td>
-                <td class="px-4 py-3">
-                    @if ($product->image)
-                    <img src="{{ asset('storage/' . $product->image) }}" alt="Product Image"
-                        class="w-16 h-16 object-cover rounded" loading="lazy">
-                    @else
-                    <span class="text-gray-400 italic">no image</span>
-                    @endif
-                </td>
-
-                <td class="px-4 py-3">{{ $product->supplier_id ?? 'no data' }}</td>
-                <td class="px-4 py-3">{{ $product->created_at ?? 'no data' }}</td>
-                <td class="px-4 py-3 space-x-2">
-                    <button type="button" class="text-blue-600 hover:text-blue-800 edit-btn" data-bs-toggle="modal"
-                        data-bs-target="#editProductModal" data-id="{{ $product->id }}" data-name="{{ $product->name }}"
-                        data-description="{{ $product->description }}" data-qty="{{ $product->qty }}"
-                        data-price="{{ $product->price }}" data-supplier="{{ $product->supplier_id }}"
-                        data-image="{{ $product->image ? asset('storage/' . $product->image) : '' }}">
-                        <svg class="h-8 w-8 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15.232 5.232l3.536 3.536M9 13l6-6 3 3-6 6H9v-3z"></path>
-                        </svg>
-                    </button>
-
-                    <form action="{{ route('product.destroy', $product->id) }}" method="POST"
-                        onsubmit="return confirm('Are you sure you want to delete this product?');" class="inline">
-                        @csrf
-                        @method('DELETE')
-                        <button type="submit" class="text-red-600 hover:text-red-800">
-                            <svg class="h-8 w-8 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                                xmlns="http://www.w3.org/2000/svg">
+            @foreach ($products as $product)
+                <tr class="hover:bg-gray-50">
+                    <td class="px-4 py-3">{{ $product->id }}</td>
+                    <td class="px-4 py-3 font-medium">{{ $product->category->name ?? 'no data'}}</td>
+                    <td class="px-4 py-3 text-sm">₱{{ $product->cost_price ?? 'no data' }}</td>
+                    <td class="px-4 py-3">₱{{ $product->sell_price ?? 'no data'}}</td>
+                    <td class="px-4 py-3">{{ $product->stock_qty ?? 'no data'}}</td>
+                    <td class="px-4 py-3">{{ $product->barcode ?? 'no data'}}</td>
+                    <td class="px-4 py-3">
+                        @if ($product->image)
+                            <img src="{{ asset('storage/' . $product->image) }}" alt="Product Image"
+                                class="w-16 h-16 object-cover rounded" loading="lazy">
+                        @else
+                            <span class="text-gray-400 italic">no image</span>
+                        @endif
+                    </td>
+                    <!-- <td class="px-4 py-3">{{ $product->supplier_id ?? 'no data' }}</td> -->
+                    <td class="px-4 py-3">no data</td>
+                    <td class="px-4 py-3">
+                        {{ $product->created_at ? $product->created_at->format('M d, Y') : 'no data' }}
+                    </td>
+                    <td class="px-4 py-3 space-x-2">
+                        <button type="button" class="text-blue-600 hover:text-blue-800 edit-btn" data-bs-toggle="modal"
+                            data-bs-target="#editProductModal" data-id="{{ $product->id }}" data-name="{{ $product->name }}"
+                            data-category="{{ $product->category_id }}" data-cost-price="{{ $product->cost_price }}"
+                            data-sell-price="{{ $product->sell_price }}" data-stock-qty="{{ $product->stock_qty }}"
+                            data-barcode="{{ $product->barcode }}"
+                            data-image="{{ $product->image ? asset('storage/' . $product->image) : '' }}">
+                            <svg class="h-10 w-10 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M9 7h6m2 0a2 2 0 00-2-2H9a2 2 0 00-2 2h10z" />
+                                    d="M15.232 5.232l3.536 3.536M9 13l6-6 3 3-6 6H9v-3z"></path>
                             </svg>
                         </button>
-                    </form>
-                </td>
-            </tr>
+
+                        <form action="{{ route('product.destroy', $product->id) }}" method="POST"
+                            onsubmit="return confirm('Are you sure you want to delete this product?');" class="inline">
+                            @csrf
+                            @method('DELETE')
+                            <button type="submit" class="text-red-600 hover:text-red-800">
+                                <svg class="h-8 w-8 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                                    xmlns="http://www.w3.org/2000/svg">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6M9 7h6m2 0a2 2 0 00-2-2H9a2 2 0 00-2 2h10z" />
+                                </svg>
+                            </button>
+                        </form>
+                    </td>
+                </tr>
             @endforeach
         </tbody>
     </table>

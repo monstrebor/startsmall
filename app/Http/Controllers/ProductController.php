@@ -3,8 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\ProductForm;
+use App\Http\Requests\ProductRequest;
+use App\Models\Category;
 use App\Models\Product;
-use Illuminate\Http\Request;
 use App\Services\ImageUploader;
 use Illuminate\Support\Facades\Log;
 
@@ -12,54 +13,57 @@ class ProductController extends Controller
 {
     public function index()
     {
+        $categories = Category::all();
         $products = Product::all();
-        return view('product.index', compact('products'));
+        return view('product.index', compact('products', 'categories'));
     }
 
-    public function store(ProductForm $request, ImageUploader $uploader)
+    public function store(ProductRequest $request)
     {
-        $imagePath = $uploader->handleUpload($request);
+        $validated = $request->validated();
 
-        try {
-            Product::create([
-                'name' => $request->name,
-                'description' => $request->description,
-                'qty' => $request->quantity,
-                'price' => $request->price,
-                'supplier_id' => $request->supplier_id ?? null,
-                'image' => $imagePath,
-            ]);
-
-            return redirect()->back()->with('success', 'Product created successfully!');
-        } catch (\Exception $e) {
-            Log::error('Failed to create product: ' . $e->getMessage());
-            return redirect()->back()->with('error', 'Failed to create product. Please try again.');
+        if ($request->hasFile('image')) {
+            $filename = time() . '_' . $request->file('image')->getClientOriginalName();
+            $path = $request->file('image')->storeAs('products', $filename, 'public');
+            $validated['image'] = $path;
         }
+
+        $validated['created_by'] = auth()->id();
+
+        Product::create($validated);
+
+        return redirect()->back()->with('success', 'Product added successfully!');
     }
 
-    public function update(ProductForm $request, ImageUploader $uploader)
+
+    public function update(ProductRequest $request)
     {
         try {
+            $validated = $request->validated();
+
             $product = Product::findOrFail($request->id);
 
-            $imagePath = $product->image;
-
-            if ($request->hasFile('image') && $request->file('image')->isValid()) {
-                $imagePath = $uploader->handleUpload($request);
+            if ($request->hasFile('image')) {
+                $filename = time() . '_' . $request->file('image')->getClientOriginalName();
+                $path = $request->file('image')->storeAs('products', $filename, 'public');
+                $validated['image'] = $path;
+            } else {
+                $validated['image'] = $product->image;
             }
 
             $product->update([
-                'name' => $request->name,
-                'description' => $request->description,
-                'qty' => $request->quantity,
-                'price' => $request->price,
-                'supplier_id' => $request->supplier_id,
-                'image' => $imagePath,
+                'name' => $validated['name'],
+                'category_id' => $validated['category_id'],
+                'cost_price' => $validated['cost_price'],
+                'sell_price' => $validated['sell_price'],
+                'stock_qty' => $validated['stock_qty'],
+                'barcode' => $validated['barcode'] ?? $product->barcode,
+                'image' => $validated['image'],
             ]);
 
             return redirect()->back()->with('success', 'Product updated successfully!');
         } catch (\Exception $e) {
-            Log::error('Failed to update product: ' . $e->getMessage());
+            \Log::error('Failed to update product: ' . $e->getMessage());
             return redirect()->back()->with('error', 'Failed to update product. Please try again.');
         }
     }

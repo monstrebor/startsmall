@@ -8,18 +8,20 @@ document.addEventListener('DOMContentLoaded', function () {
 
         const id = button.getAttribute('data-id');
         const name = button.getAttribute('data-name');
-        const description = button.getAttribute('data-description');
-        const qty = button.getAttribute('data-qty');
-        const price = button.getAttribute('data-price');
-        const supplier = button.getAttribute('data-supplier');
+        const category = button.getAttribute('data-category');
+        const costPrice = button.getAttribute('data-cost-price');
+        const sellPrice = button.getAttribute('data-sell-price');
+        const stockQty = button.getAttribute('data-stock-qty');
+        const barcode = button.getAttribute('data-barcode');
         const image = button.getAttribute('data-image');
 
         document.getElementById('edit-id').value = id || '';
         document.getElementById('edit-name').value = name || '';
-        document.getElementById('edit-description').value = description || '';
-        document.getElementById('edit-qty').value = qty || '';
-        document.getElementById('edit-price').value = price || '';
-        document.getElementById('edit-supplier').value = supplier || '';
+        document.getElementById('edit-category').value = category || '';
+        document.getElementById('edit-cost-price').value = costPrice || '';
+        document.getElementById('edit-sell-price').value = sellPrice || '';
+        document.getElementById('edit-stock-qty').value = stockQty || '';
+        document.getElementById('edit-barcode').value = barcode || '';
 
         const imagePreview = document.getElementById('edit-image-preview');
         const imageElement = document.getElementById('edit-image-src');

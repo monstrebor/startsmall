@@ -20,7 +20,7 @@
 <body>
     @yield('content')
     <script src="{{ asset('js/home.js') }}"></script>
-    <script src="{{ asset('js/logoutTimer.js') }}"></script>
+    <!-- <script src="{{ asset('js/logoutTimer.js') }}"></script> -->
     <script src="{{ asset('js/customerHomeImages.js') }}" defer></script>
     <script src="{{ asset('js/cartModal.js') }}" defer></script>
     <script src="https://unpkg.com/alpinejs@3" defer></script>

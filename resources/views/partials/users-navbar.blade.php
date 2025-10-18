@@ -1,16 +1,38 @@
 <nav class="bg-white border-b border-gray-200 px-4 py-3 shadow-sm">
     <div class="flex items-center justify-between">
-        <a href="{{ route('administrator.dashboard') }}" class="ml-[65px] flex items-center space-x-2">
-            <img src="" alt="business logo" class="ml-[4px] w-14 h-14 rounded-full">
-            <span
-                class="text-gray-600 hover:text-blue-600 text-2xl font-medium px-4 py-2 rounded transition">Start Small</span>
-        </a>
+        @auth
+            <a href="
+                        @if (auth()->user()->hasRole('admin'))
+                            {{ route('admin.dashboard') }}
+                        @elseif (auth()->user()->hasRole('cashier'))
+                            {{ route('cashier.dashboard') }}
+                        @else
+                            #
+                        @endif
+                    " class="ml-[65px] flex items-center space-x-2">
+                <img src="" alt="business logo" class="ml-[4px] w-14 h-14 rounded-full">
+                <span class="text-gray-600 hover:text-blue-600 text-2xl font-medium px-4 py-2 rounded transition">
+                    Start Small
+                </span>
+            </a>
+        @endauth
 
         <div class="flex items-center space-x-4">
-            <a href="{{ route('administrator.dashboard') }}"
-                class="text-gray-600 hover:text-blue-600 text-2xl font-medium border border-gray-300 px-4 py-2 rounded transition">
-                Dashboard
-            </a>
+            @auth
+                <a href="
+                        @if (auth()->user()->hasRole('admin'))
+                            {{ route('admin.dashboard') }}
+                        @elseif (auth()->user()->hasRole('cashier'))
+                            {{ route('cashier.dashboard') }}
+                        @else
+                            #
+                        @endif
+                    "
+                    class="text-gray-600 hover:text-blue-600 text-2xl font-medium border border-gray-300 px-4 py-2 rounded transition">
+                    Dashboard
+                </a>
+            @endauth
+            
             <a href="#"
                 class="text-gray-600 hover:text-blue-600 text-2xl font-medium border border-gray-300 px-4 py-2 rounded transition">
                 About
@@ -33,7 +55,8 @@
                 <span class="absolute -top-1 -right-1 inline-block w-3 h-3 bg-red-500 rounded-full"></span>
             </button>
 
-            <a href="{{ route('user.dashboard') }}" class="relative border border-gray-300 px-4 py-2 rounded transition hover:text-blue-600">
+            <a href="{{ route('user.dashboard') }}"
+                class="relative border border-gray-300 px-4 py-2 rounded transition hover:text-blue-600">
                 <button class="flex items-center space-x-1 text-gray-600 hover:text-blue-600">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-10 w-10" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
