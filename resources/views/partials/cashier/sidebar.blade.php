@@ -10,7 +10,7 @@
 
     <!-- Navigation -->
     <nav class="flex flex-col space-y-2 mt-4 px-4">
-        <a href=""
+        <a href="{{ route('sales.index') }}"
             class="flex items-center space-x-3 text-gray-600 hover:text-blue-600 py-2 px-2 rounded hover:bg-gray-100 transition group">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 flex-shrink-0" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
@@ -19,7 +19,7 @@
                     d="M3 9l1-5h16l1 5M4 9h16v11H4V9z" />
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 14h4v6h-4v-6z" />
             </svg>
-            <span class="text-2xl font-medium hidden group-hover:inline">Walk-In</span>
+            <span class="text-2xl font-medium hidden group-hover:inline">Sales</span>
         </a>
 
 

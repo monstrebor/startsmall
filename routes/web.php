@@ -2,7 +2,7 @@
 
 use App\Http\Controllers\AccountController;
 use App\Http\Controllers\admin\{ManageUserController, AdminController, LoginController, RegisterController, SettingsController};
-use App\Http\Controllers\ProductController;
+use App\Http\Controllers\{ProductController, SaleController};
 use App\Http\Controllers\users\CashierController;
 use Illuminate\Support\Facades\Route;
 
@@ -73,6 +73,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
 Route::middleware(['auth', 'role:cashier'])->group(function () {
     Route::get('/cashier', [CashierController::class, 'index'])->name('cashier.dashboard');
+
+    Route::get('/cashier-sales', [SaleController::class, 'index'])->name('sales.index');
+    Route::post('/sales-store', [SaleController::class, 'store'])->name('sales.store');
+    Route::get('/cashier/receipt/{sale}', [SaleController::class, 'receipt'])->name('cashier.receipt');
 });
 
 /*

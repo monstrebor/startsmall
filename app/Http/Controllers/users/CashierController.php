@@ -8,6 +8,6 @@ use Illuminate\Http\Request;
 class CashierController extends Controller
 {
     public function index(){
-        return view("users.cashiers.index");
+        return view("cashier.index");
     }
 }
