@@ -15,7 +15,7 @@
 
     <div class="max-w-6xl mx-auto px-4 py-8">
         @include('layout.all_notif')
-
+        @include('cashier.report.daily-sales')
 
         @if (auth()->check() && auth()->user()->is_new)
         <div class="mt-10">

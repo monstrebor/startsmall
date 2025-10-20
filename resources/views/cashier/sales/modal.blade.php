@@ -13,6 +13,7 @@
                         <label class="form-label">Payment Type</label>
                         <select name="payment_type" class="form-select">
                             <option value="cash">Cash</option>
+                            <option value="gcash">Gcash</option>
                             <option value="credit">Credit</option>
                         </select>
                     </div>
