@@ -27,6 +27,7 @@
                             <th class="px-6 py-3">#</th>
                             <th class="px-6 py-3">Cashier</th>
                             <th class="px-6 py-3">Payment Type</th>
+                            <th class="px-6 py-3">Total Items</th>
                             <th class="px-6 py-3">Total Amount</th>
                             <th class="px-6 py-3">Date</th>
                             <th class="px-6 py-3">Reference no.</th>
@@ -39,6 +40,7 @@
                                 <td class="px-6 py-4">{{ $loop->iteration }}</td>
                                 <td class="px-6 py-4">{{ $sale->user->name ?? 'N/A' }}</td>
                                 <td class="px-6 py-4 capitalize">{{ $sale->payment_type }}</td>
+                                <td class="px-6 py-4 capitalize">{{ $sale->payment_type }}</td>
                                 <td class="px-6 py-4 font-semibold">₱{{ number_format($sale->total_amount, 2) }}</td>
                                 <td class="px-6 py-4">{{ $sale->created_at->format('M d, Y h:i A') }}</td>
                                 <td class="px-6 py-4">{{ $sale->transaction->reference_no ?? 'N/A' }}</td>
@@ -47,9 +49,9 @@
                                         $saleItems = $sale->items->map(function ($item) {
                                             return [
                                                 'product' => $item->product->name,
-                                                'qty' => $item->pivot->quantity ?? 1,
+                                                'qty' => $item->qty ?? 1,
                                                 'price' => number_format($item->price, 2),
-                                                'total' => number_format($item->price * ($item->pivot->quantity ?? 1), 2)
+                                                'total' => number_format($item->price * ($item->qty ?? 1), 2)
                                             ];
                                         })->toArray();
                                     @endphp
