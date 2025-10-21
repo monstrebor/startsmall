@@ -3,7 +3,7 @@
         <a href="" style="text-decoration: none;" class="ml-[65px] flex items-center space-x-2">
             <img src="{{ asset('image/sample.png') }}" alt="business logo" class="ml-[4px] w-14 h-14 rounded-full">
             <span
-                class="text-gray-600 hover:text-blue-600 text-2xl font-medium px-4 py-2 rounded transition">Start Small</span>
+                class="text-gray-600 hover:text-blue-600 text-4xl font-medium px-4 py-2 rounded transition">Start Small</span>
         </a>
 
         @auth
