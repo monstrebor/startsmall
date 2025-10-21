@@ -1,7 +1,7 @@
 <?php
 
 use App\Http\Controllers\AccountController;
-use App\Http\Controllers\admin\{ManageUserController, AdminController, LoginController, RegisterController, SettingsController};
+use App\Http\Controllers\admin\{ManageUserController, AdminController, LoginController, RegisterController, SettingsController, ExpenseController};
 use App\Http\Controllers\{ProductController, SaleController};
 use App\Http\Controllers\users\CashierController;
 use Illuminate\Support\Facades\Route;
@@ -63,6 +63,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
     //Reports
     Route::get('/reports/walkins', [AdminController::class, 'walkinReport'])->name('admin.reports.walkins');
     Route::get('/reports/return-exchange', [AdminController::class, 'returnExchangeReport'])->name('admin.reports.return-exchange');
+
+    //Store Expense Records
+    Route::get('/expenses', [ExpenseController::class, 'index'])->name('expenses.index');
+    Route::post('/expenses', [ExpenseController::class, 'store'])->name('expenses.store');
 });
 
 /*

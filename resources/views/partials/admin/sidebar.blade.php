@@ -9,8 +9,8 @@
 
 
     <!-- Navigation -->
-    <nav class="flex flex-col space-y-2 mt-4 px-4">
-        <a href="{{ route('product.dashboard') }}"
+    <nav class="flex flex-col space-y-2 mt-4 px-4" >
+        <a href="{{ route('product.dashboard') }}" style="text-decoration: none;"
             class="flex items-center space-x-3 text-gray-600 hover:text-blue-600 py-2 px-2 rounded hover:bg-gray-100 transition">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 flex-shrink-0" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
@@ -21,16 +21,16 @@
             <span class="text-2xl font-medium hidden group-hover:inline">Product</span>
         </a>
 
-        <a href=""
+        <a href="{{ route('expenses.index') }}" style="text-decoration: none;"
             class="flex items-center space-x-3 text-gray-600 hover:text-blue-600 py-2 px-2 rounded hover:bg-gray-100 transition">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 flex-shrink-0" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 10h4l3 8 4-16 3 8h4" />
             </svg>
-            <span class="text-2xl font-medium hidden group-hover:inline">Edit Images</span>
+            <span class="text-[20px] font-medium hidden group-hover:inline">Record Expense</span>
         </a>
 
-        <a href=""
+        <a href="" style="text-decoration: none;"
             class="flex items-center space-x-3 text-gray-600 hover:text-blue-600 py-2 px-2 rounded hover:bg-gray-100 transition">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 flex-shrink-0" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
@@ -40,7 +40,7 @@
             <span class="text-2xl font-medium hidden group-hover:inline">Orders</span>
         </a>
 
-        <a href=""
+        <a href="" style="text-decoration: none;"
             class="flex items-center space-x-3 text-gray-600 hover:text-blue-600 py-2 px-2 rounded hover:bg-gray-100 transition group">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 flex-shrink-0" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
@@ -50,7 +50,7 @@
             <span class="text-2xl font-medium hidden group-hover:inline">Transactions</span>
         </a>
 
-        <a href=""
+        <a href="" style="text-decoration: none;"
             class="flex items-center space-x-3 text-gray-600 hover:text-green-600 py-2 px-2 rounded hover:bg-gray-100 transition group">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 flex-shrink-0" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
@@ -61,7 +61,7 @@
             <span class="text-2xl font-medium hidden group-hover:inline">Purchase Order</span>
         </a>
 
-        <a href=""
+        <a href="" style="text-decoration: none;"
             class="flex items-center space-x-3 text-gray-600 hover:text-green-600 py-2 px-2 rounded hover:bg-gray-100 transition">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 flex-shrink-0" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">
@@ -91,7 +91,7 @@
             <span class="text-2xl font-medium hidden group-hover:inline">Contact</span>
         </a> --}}
 
-        <a href="{{ route('admin-create-user.dashboard') }}"
+        <a href="{{ route('admin-create-user.dashboard') }}" style="text-decoration: none;"
             class="flex items-center space-x-3 text-gray-600 hover:text-blue-600 py-2 px-2 rounded hover:bg-gray-100 transition">
             <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 flex-shrink-0" fill="none" viewBox="0 0 24 24"
                 stroke="currentColor">

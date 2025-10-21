@@ -22,7 +22,7 @@
             </div>
 
             <div class="w-1/2 bg-white text-gray-800 flex flex-col items-center justify-center p-8">
-                @include('layout.all_notif')
+                @include('layout.all-notif')
 
                 <div class="w-full max-w-md">
 

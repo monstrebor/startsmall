@@ -12,7 +12,7 @@
     @include('partials.admin.sidebar')
 
     <main class="ml-[100px] mt-[20px] mr-[20px]">
-        @include('layout.all_notif')
+        @include('layout.all-notif')
 
         @include('product.product-table')
     </main>

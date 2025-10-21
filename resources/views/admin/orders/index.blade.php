@@ -13,7 +13,7 @@
 
     <div class="max-w-7xl mx-auto px-6 py-12">
         <h1 class="text-2xl font-semibold text-gray-800 mb-6">Customer Orders</h1>
-        @include('layout.all_notif')
+        @include('layout.all-notif')
         <div class="flex space-x-4 mb-4">
             <a href="{{ route('admin.orders.index', ['status' => 'all']) }}"
                 class="px-4 py-2 bg-gray-100 rounded {{ request('status') === 'all' ? 'bg-blue-100 text-blue-700' : '' }}">

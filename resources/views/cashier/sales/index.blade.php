@@ -8,7 +8,7 @@
         @include('partials.cashier.sidebar')
 
         <div class="max-w-6xl mx-auto px-4 py-8">
-            @include('layout.all_notif')
+            @include('layout.all-notif')
 
             {{-- Header --}}
             <div class="flex justify-between items-center mb-4">

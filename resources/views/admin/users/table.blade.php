@@ -1,5 +1,5 @@
 <div class="pl-[120px] pt-[50px] pr-[50px]">
-    @include('layout.all_notif')
+    @include('layout.all-notif')
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-4xl font-bold text-gray-800 flex items-center gap-2">
             Users Table

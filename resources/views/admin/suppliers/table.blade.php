@@ -1,5 +1,5 @@
 <div class="max-w-7xl mx-auto px-4 py-8">
-    @include('layout.all_notif')
+    @include('layout.all-notif')
 
     <div class="flex justify-between items-center mb-6">
         <h1 class="text-3xl font-bold text-indigo-700">📦 Suppliers</h1>

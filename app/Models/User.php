@@ -50,4 +50,10 @@ class User extends Authenticatable
     {
         return $this->hasOne(UserInfo::class);
     }
+
+    public function expenses()
+    {
+        return $this->hasMany(Expense::class);
+    }
+
 }

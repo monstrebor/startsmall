@@ -14,7 +14,7 @@
     @include('partials.users-navbar')
 
     <div class="max-w-6xl mx-auto px-4 py-8">
-        @include('layout.all_notif')
+        @include('layout.all-notif')
 
         <div class="p-6 max-w-4xl mx-auto space-y-6">
             <div class="flex items-center justify-between">
