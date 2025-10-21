@@ -1,9 +1,9 @@
 <nav class="bg-white border-b border-gray-200 px-4 py-3 shadow-sm">
     <div class="flex items-center justify-between">
         <a href="{{ route('admin.dashboard') }}" class="ml-[65px] flex items-center space-x-2" style="text-decoration: none;">
-            <img src="" alt="business logo" class="ml-[4px] w-14 h-14 rounded-full">
+            <img src="{{ asset('image/business_logo.png') }}" alt="business logo" class="ml-[4px] w-14 h-14 rounded-full">
             <span 
-                class="text-gray-600 hover:text-blue-600 text-2xl font-medium px-4 py-2 rounded transition">Start Small</span>
+                class="text-gray-600 hover:text-blue-600 text-4xl font-medium px-4 py-2 rounded transition">Start Small</span>
         </a>
 
         <div class="flex items-center space-x-4">

@@ -1,7 +1,6 @@
     document.addEventListener('DOMContentLoaded', function () {
         const editButtons = document.querySelectorAll('.edit-btn');
         const form = document.getElementById('editExpenseForm');
-        const baseUrl = "{{ url('expenses') }}"; 
 
         editButtons.forEach(button => {
             button.addEventListener('click', () => {
@@ -17,7 +16,6 @@
                 document.getElementById('editDate').value = date;
                 document.getElementById('editDescription').value = description || '';
 
-                form.action = `${baseUrl}/${id}`;
             });
         });
     });

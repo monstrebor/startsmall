@@ -66,7 +66,10 @@ Route::middleware(['auth', 'role:admin'])->group(function () {
 
     //Store Expense Records
     Route::get('/expenses', [ExpenseController::class, 'index'])->name('expenses.index');
-    Route::post('/expenses', [ExpenseController::class, 'store'])->name('expenses.store');
+    Route::post('/expenses-store', [ExpenseController::class, 'store'])->name('expenses.store');
+    Route::post('/expenses-update', [ExpenseController::class, 'update'])->name('expenses.update');
+    Route::delete('/expenses/{expense}', [ExpenseController::class, 'destroy'])->name('expenses.destroy');
+    Route::get('/profit', [ExpenseController::class, 'profitIndex'])->name('profit.index');
 });
 
 /*

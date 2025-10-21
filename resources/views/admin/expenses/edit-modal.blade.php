@@ -1,9 +1,7 @@
 <div class="modal fade" id="editExpenseModal" tabindex="-1" aria-labelledby="editExpenseModalLabel" aria-hidden="true">
     <div class="modal-dialog">
-        <form id="editExpenseForm" method="POST" class="modal-content">
+        <form id="editExpenseForm" method="POST" class="modal-content" action="{{ route('expenses.update') }}">
             @csrf
-            @method('PUT')
-
             <div class="modal-header bg-primary text-white">
                 <h5 class="modal-title" id="editExpenseModalLabel">
                     <i class="bi bi-pencil-square me-2"></i> Edit Expense

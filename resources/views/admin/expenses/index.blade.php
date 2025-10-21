@@ -9,5 +9,6 @@
 
         @include('admin.expenses.table')
     </div>
+    
     <script src="{{ asset('js/editExpenseModal.js') }}"></script>
 @endsection
